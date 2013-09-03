@@ -1,28 +1,24 @@
 import sys
 import os
-#import Python
 
-def addOption(f):
-	f.write("test\n")
-
-def openFile(f):
+def openFile(f, lanType):
 	if not os.path.exists(f):
 		fp = open(f, 'w')
-		#addOption(fp)
-		obj = Python.Python()
-		obj.addAuthor(fp, "liuyu")
+		obj = eval(lanType + '.' + lanType + '()')
+		obj.addOption(fp)
 		fp.close()
 	else:
 		fp = open(f, 'r')
 		lines = fp.read()
 		fp.close()
 		fp = open(f, 'w')
-		#addOption(fp)
-		obj = Python.Python()
-		obj.addAuthor(fp, "liuyu")
-		fp.write(lines)
-		fp.close()
-
+		try:
+			#obj = Python.Python()
+			obj = eval(lanType + '.' + lanType + '()')
+			obj.addOption(fp)
+		finally:
+			fp.write(lines)
+			fp.close()
 
 if len(sys.argv) == 1:
 	print "Missing file"
@@ -44,16 +40,19 @@ else:
 			if inf_types.startswith('#'):
 				continue
 			else:
-				count = 0
-				for i in inf_types:
-					if i == '(':
-						left = count
-						value = inf_types[0:left]
-					if i == ')':
-						right = count
-						key = inf_types[left + 1:right]
-					count = count + 1
+				#count = 0
+				#for i in inf_types:
+				#	if i == '(':
+				#		left = count
+				#		value = inf_types[0:left]
+				#	if i == ')':
+				#		right = count
+				#		key = inf_types[left + 1:right]
+				#	count = count + 1
+				value = inf_types.split('(')[0] #This two sentences can do the same thing with above code
+				key = inf_types.split('(')[1].split(')')[0]
 			types_dic[key] = value
+
 		for module in types_dic:
 			module_file = types_dic[module] + '.' + 'py'
 			#print module_file 
@@ -61,17 +60,18 @@ else:
 				print "Error: %s is not exists!" %module_file
 				sys.exit()
 			else:
-				__import__(types_dic[module])
+				exec("import " + types_dic[module])
 		#print types_dic
 		types_f.close()
 
 	for f in sys.argv[1:]:
-		language_type = f[f.rfind('.') + 1:]
-		#print language_type
+		language_type = f.split('.')[1]
 		if language_type in types_dic:
-			openFile(f)
+			openFile(f, types_dic[language_type])
+			print "==============================================="
 			print "Filetype of %s is" %f, types_dic[language_type]
 			print "Option added"
+			print "==============================================="
 		else:
 			print "%s is not a accessable file, please check the configTypes file" %f
 			sys.exit()
