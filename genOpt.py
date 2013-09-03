@@ -1,3 +1,5 @@
+#! /usr/bin/python
+
 import sys
 import os
 
@@ -23,15 +25,15 @@ def openFile(f, lanType):
 if len(sys.argv) == 1:
 	print "Missing file"
 else:
-	if not os.path.exists("configTypes"):
-		f = open("configTypes", 'w')
+	if not os.path.exists("~/.local/bin/configTypes"):
+		f = open("~/.local/bin/configTypes", 'w')
 		f.write("#This is a config file which includes the accessable types\n")
 		f.write("#input the types like this Python(py)\n")
 		f.write("#remember to import Python\n")
 		sys.exit()
 	else:
 		types_dic = {}
-		types_f = open("configTypes", 'r')
+		types_f = open("~/.local/bin/configTypes", 'r')
 		while True:
 			inf_types = types_f.readline()
 			#print inf_types,
@@ -56,8 +58,10 @@ else:
 		for module in types_dic:
 			module_file = types_dic[module] + '.' + 'py'
 			#print module_file 
-			if not os.path.exists(module_file):
-				print "Error: %s is not exists!" %module_file
+			filepath = "~/.local/lib/python" + module_file
+			if not os.path.exists(filepath):
+				print "Error: %s is not exists in " %module_file,
+				print filepath
 				sys.exit()
 			else:
 				exec("import " + types_dic[module])
