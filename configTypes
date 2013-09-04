@@ -1,6 +1,0 @@
-#This is a config file which includes the accessable types
-#input the types like this Python(py)
-#remember to import Python
-C(c)
-Python(py)
-Scheme(scm)
