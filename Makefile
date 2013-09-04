@@ -1,17 +1,15 @@
+.PHONY: install clean clean-test test
+
 install:
-	./setup.sh	
-	echo "export PATH=~/.local/bin:$$PATH">>~/.bash_profile
-	echo "export PYTHONPATH=~/.local/lib/python:$$PYTHONPATH">>~/.bash_profile
+	echo "export PATH=~/generateOption:$$PATH">>~/.bash_profile
+	echo "export PYTHONPATH=~/generateOption/lib:$$PYTHONPATH">>~/.bash_profile
 	source ~/.bash_profile
 
 test:
-	genOpt.py ./test/hello.c hello.scm hello.py
+	./test.sh
 
 help:
 	@echo " "
 
-.PHONY: clean
 clean: 
 	-rm *.pyc
-	-rm ./test/*
-

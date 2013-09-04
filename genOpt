@@ -1,0 +1,62 @@
+#! /usr/bin/python
+
+'''
+This program is the main code.
+Check the README for more details.
+'''
+
+import sys
+import os
+
+types_dic = {'py':'Python', 'c':'C', 'scm':'Scheme'}
+
+def openFile(f, lanType):
+	if not os.path.exists(f):
+		fp = open(f, 'w')
+		obj = eval(lanType + '.' + lanType + '()')
+		obj.addOption(fp)
+		fp.close()
+	else:
+		fp = open(f, 'r')
+		lines = fp.read()
+		fp.close()
+		fp = open(f, 'w')
+		try:
+			obj = eval(lanType + '.' + lanType + '()')
+			obj.addOption(fp)
+		finally:
+			fp.write(lines)
+			fp.close()
+
+if len(sys.argv) == 1:
+	print "Missing file"
+else:
+	if not os.path.exists("./config"):
+		f = open("./config", 'w')
+		f.write("# Config file: for the options.\n")
+		f.write("# You can add your personal options here.\n")
+		f.write("Author: UesrName\n")
+		f.write("Email: UesrEmail\n")
+		f.close()
+	for module in types_dic:
+		exec("import " + types_dic[module])
+
+	for f in sys.argv[1:]:
+		print "==============================================="
+		errorFile = 1
+		if f.find('.') != -1:
+			language_type = f.split('.')[-1]
+			errorFile = 0
+			if language_type in types_dic:
+				openFile(f, types_dic[language_type])
+				print "Filetype of %s is" %f, types_dic[language_type]
+				print "Option added"
+				print "==============================================="
+			else:
+				errorFile = 1
+		if errorFile == 1:
+			print "ERROR:"
+			print "%s is not a accessable file" %f
+			print "Please check the types_dic in this code"
+			print "Or maybe you input the wrong filename.:)"				
+			print "==============================================="
