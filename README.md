@@ -4,9 +4,12 @@ This program is used to generate the option in files.
 
 ## Installation & Running
 
-    git clone git@github.com:Liuyu314/generateOption.git
+    git clone https://github.com/Liuyu314/generateOption.git
     cd generateOption
     make
+
+Maybe you have to exit the terminal and open it again.   
+If there are some problems about the permission, check the permission of system or the permission of files.    
 
 ## Testing
 If you want to run the testing, input:
