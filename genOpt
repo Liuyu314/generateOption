@@ -46,14 +46,12 @@ else:
 		errorFile = 1
 		if f.find('.') != -1:
 			language_type = f.split('.')[-1]
-			errorFile = 0
 			if language_type in types_dic:
 				openFile(f, types_dic[language_type])
 				print "Filetype of %s is" %f, types_dic[language_type]
 				print "Option added"
 				print "==============================================="
-			else:
-				errorFile = 1
+				errorFile = 0
 		if errorFile == 1:
 			print "ERROR:"
 			print "%s is not a accessable file" %f

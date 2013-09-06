@@ -1,9 +1,9 @@
 .PHONY: install clean clean-test test
 
 install:
-	echo "export PATH=$(shell pwd):$$PATH">>~/.bash_profile
-	echo "export PYTHONPATH=$(shell pwd)/lib:$$PYTHONPATH">>~/.bash_profile
-	source ~/.bash_profile
+	echo "export PATH=$(shell pwd):$$PATH">>~/.bashrc
+	echo "export PYTHONPATH=$(shell pwd)/lib:$$PYTHONPATH">>~/.bashrc
+	./install.sh
 
 test:
 	./test.sh
