@@ -18,7 +18,7 @@ fi
 
 
 if [ -f "./testfile" ]; then
-	rm ./testfile
+	echo > "./testfile"
 fi
 genOpt ./tests/hello.c >> testfile
 genOpt ./tests/hello.py >> testfile
@@ -28,5 +28,3 @@ genOpt ./tests/world >> testfile
 genOpt ./tests/hello.com >> testfile
 genOpt ./tests/hello.c ./tests/hello.py ./tests/hello.scm ./tests/hello.sh >> testfile
 genOpt ./tests/hello.c ./tests/world ./tests/hello.com ./tests/hello.sh >> testfile
-echo "Compare to the cmptestfile..."
-diff testfile cmptestfile

@@ -13,3 +13,7 @@
 ## 2013-09-04 23:00
 * Change the Makefile, add install.sh
 * Change the permission of all files into 777
+
+## 2013-09-15 13:40
+* Add Shell.py and change the Python.py
+* Change the Makefile, change test.sh

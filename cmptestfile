@@ -1,23 +1,4 @@
-===============================================
-Filetype of ./tests/hello.c is C
-Option added
-===============================================
-===============================================
-ERROR:
-./tests/world is not a accessable file
-Please check the types_dic in this code
-Or maybe you input the wrong filename.:)
-===============================================
-===============================================
-ERROR:
-./tests/hello.com is not a accessable file
-Please check the types_dic in this code
-Or maybe you input the wrong filename.:)
-===============================================
-===============================================
-Filetype of ./tests/hello.sh is Shell
-Option added
-===============================================
+
 ===============================================
 Filetype of ./tests/hello.c is C
 Option added

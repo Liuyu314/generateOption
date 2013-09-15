@@ -6,7 +6,12 @@ install:
 	./install.sh
 
 test:
-	./test.sh
+	@./test.sh
+	@echo "===================Testing===================="
+	@echo "Compare to the cmptestfile..."
+	@echo "If the testing is ok, there's no output..."
+	@diff cmptestfile testfile
+	@echo "=================Testing End=================="
 
 help:
 	@echo "make (install) - Add the PATH into ~/.bash_profile"
