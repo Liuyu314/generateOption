@@ -1,7 +1,7 @@
 #coding=utf-8
 
 '''
-This is a module for the type of C language.
+This is a module for the type of Python language.
 You should not run this code independently.
 You can add some features for your own option.
 '''
@@ -30,10 +30,11 @@ else:
 			fp.close()
 	
 		def addOption(self, f):
-			f.write("# Author: %s" %Python.author)
-			f.write("# Email: %s" %Python.email)
-			f.write("# Time: %s\n" %Python.timeNow)
-			f.write("# Description:\n")
-			f.write("# Version:\n")
-			f.write("# Option:\n")
+			f.write("'''\n")
+			f.write("Author: %s" %Python.author)
+			f.write("Email: %s" %Python.email)
+			f.write("Time: %s\n" %Python.timeNow)
+			f.write("Version: \n")
+			f.write("Description:\n\n")
+			f.write("'''\n")
 			f.write('\n')

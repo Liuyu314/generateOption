@@ -12,5 +12,21 @@ fi
 if [ -f "./tests/hello.scm" ]; then
 	echo > "./tests/hello.scm"
 fi
+if [ -f "./tests/hello.sh" ]; then
+	echo > "./tests/hello.sh"
+fi
 
-genOpt ./tests/hello.c ./tests/hello.py ./tests/hello.scm
+
+if [ -f "./testfile" ]; then
+	rm ./testfile
+fi
+genOpt ./tests/hello.c >> testfile
+genOpt ./tests/hello.py >> testfile
+genOpt ./tests/hello.scm >> testfile
+genOpt ./tests/hello.sh >> testfile
+genOpt ./tests/world >> testfile
+genOpt ./tests/hello.com >> testfile
+genOpt ./tests/hello.c ./tests/hello.py ./tests/hello.scm ./tests/hello.sh >> testfile
+genOpt ./tests/hello.c ./tests/world ./tests/hello.com ./tests/hello.sh >> testfile
+echo "Compare to the cmptestfile..."
+diff testfile cmptestfile

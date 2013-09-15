@@ -1,7 +1,7 @@
 #coding=utf-8
 
 '''
-This is a module for the type of Scheme language.
+This is a module for the type of Shell language.
 You should not run this code independently.
 You can add some features for your own option.
 '''
@@ -13,7 +13,7 @@ if __name__ == "__main__":
 	print "This is a module, you should not run it indepently!"
 	print "Find the genOpt.py and run it! :)"
 else:
-	class Scheme:
+	class Shell:
 		def __init__(self):
 			fp = open("./config", 'r')
 			while True:
@@ -22,18 +22,18 @@ else:
 					break
 				if line.startswith('#'):
 					continue
-				if line.startswith('Author'):
-					Scheme.author = line.split(':')[1]
+				if line.startswith('Author'):	
+					Shell.author = line.split(':')[1]
 				if line.startswith('Email'):
-					Scheme.email = line.split(':')[1]
-				Scheme.timeNow = time.strftime('%Y,%m,%d %H:%M:%S')
+					Shell.email = line.split(':')[1]
+				Shell.timeNow = time.strftime('%Y,%m,%d %H:%M:%S')
 			fp.close()
 	
 		def addOption(self, f):
-			f.write("; Author: %s" %Scheme.author)
-			f.write("; Email: %s" %Scheme.email)
-			f.write("; Time: %s\n" %Scheme.timeNow)
-			f.write("; Description:\n")
-			f.write("; Version:\n")
-			f.write("; Option:\n")
+			f.write("# Author: %s" %Shell.author)
+			f.write("# Email: %s" %Shell.email)
+			f.write("# Time: %s\n" %Shell.timeNow)
+			f.write("# Description:\n")
+			f.write("# Version:\n")
+			f.write("# Option:\n")
 			f.write('\n')
