@@ -5,6 +5,10 @@ install:
 	echo "export PYTHONPATH=$(shell pwd)/lib:$$PYTHONPATH">>~/.bashrc
 	./install.sh
 
+uninstall:
+	@./uninstall.sh
+	@echo "uninstall success!"
+
 test:
 	@./test.sh
 	@echo "===================Testing===================="
@@ -19,4 +23,4 @@ help:
 	@echo "make clean - Delete all the pyc files in the ./lib"
 
 clean: 
-	-rm *.pyc
+	-rm lib/*.pyc
