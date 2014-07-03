@@ -17,3 +17,8 @@
 ## 2013-09-15 13:40
 * Add Shell.py and change the Python.py
 * Change the Makefile, change test.sh
+
+## 2014-07-03 17:00
+* Change the genOpt with polymorphism instead of eval.
+* Add func.py and change every file in /lib with the function readConfig()
+* Correct some spelling mistakes of README.

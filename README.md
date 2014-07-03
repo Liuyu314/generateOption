@@ -33,8 +33,8 @@ Here are some response:
 C:
 
     /****************************************************
-     *    Author:  UesrName
-     *    Email:  UesrEmail
+     *    Author:  UserName
+     *    Email:  UserEmail
      *    Time: 2013,09,04 22:22:01
      *    Description:
      *    Version:
@@ -43,8 +43,8 @@ C:
 
 Python:
 
-    # Author:  UesrName
-    # Email:  UesrEmail
+    # Author:  UserName
+    # Email:  UserEmail
     # Time: 2013,09,04 22:03:44
     # Description:
     # Version:
@@ -52,8 +52,8 @@ Python:
 
 Scheme:
 
-    ; Author:  UesrName
-    ; Email:  UesrEmail
+    ; Author:  UserName
+    ; Email:  UserEmail
     ; Time: 2013,09,04 22:03:44
     ; Description:
     ; Version:
