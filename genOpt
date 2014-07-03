@@ -35,8 +35,8 @@ else:
 		f = open("./config", 'w')
 		f.write("# Config file: for the option.\n")
 		f.write("# You can change your personal information here.\n")
-		f.write("Author: UesrName\n")
-		f.write("Email: UesrEmail\n")
+		f.write("Author: UserName\n")
+		f.write("Email: UserEmail\n")
 		f.close()
 	for module in types_dic:
 		exec("import " + types_dic[module])
