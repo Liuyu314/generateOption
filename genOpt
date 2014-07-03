@@ -10,11 +10,27 @@ import os
 
 types_dic = {'py':'Python', 'c':'C', 'scm':'Scheme', 'sh':'Shell'}
 
-def openFile(f, lanType):
+
+class TypeChoose:
+	
+	def addOption(self, mode, file):
+		mode.addOption(file)
+
+def openFile(f, type):
+
+	if type == 'Python':
+		mode = Python()
+	elif type == 'Scheme':
+		mode = Scheme()
+	elif type == 'C':
+		mode = C()
+	elif type == 'Shell':
+		mode = Shell()
+
+
 	if not os.path.exists(f):
 		fp = open(f, 'w')
-		obj = eval(lanType + '.' + lanType + '()')
-		obj.addOption(fp)
+		TypeChoose().addOption(mode, fp)
 		fp.close()
 	else:
 		fp = open(f, 'r')
@@ -22,8 +38,8 @@ def openFile(f, lanType):
 		fp.close()
 		fp = open(f, 'w')
 		try:
-			obj = eval(lanType + '.' + lanType + '()')
-			obj.addOption(fp)
+			TypeChoose().addOption(mode, fp)
+
 		finally:
 			fp.write(lines)
 			fp.close()
@@ -39,7 +55,7 @@ else:
 		f.write("Email: UserEmail\n")
 		f.close()
 	for module in types_dic:
-		exec("import " + types_dic[module])
+		exec("from " + types_dic[module] + " import *")
 
 	for f in sys.argv[1:]:
 		print "==============================================="
